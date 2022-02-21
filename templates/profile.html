@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<section>
+    <main>
+        <article>ID</article>
+        <p>{{ profile[0] }}</p>
+        <article>User_ID</article>
+        <p>{{ profile[1] }}</p>
+        <article>Status</article>
+        <p>{{ profile[2] }}</p>
+    </main>
+</section>
+{% endblock %}

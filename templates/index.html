@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<section class="content">
+    {% if user %}
+    <main class="user-content">
+        <article>Config:</article>
+        <main class="user-config">
+            {% for item in user_config %}
+            <article>{{ item[2] }}</article>
+            <code id="config-{{ item[1] }}">{{ item[3] }}</code>
+            <button onclick="copyTo('config-{{ item[1] }}')">copy</button>
+            {% endfor %}
+        </main>
+        <article>Bind:</article>
+        <main class="user-bind">
+            {% for item in user_bind %}
+            <article>{{ item[2] }}</article>
+            <code id="bind-{{ item[1] }}">{{ item[3] }}</code>
+            <button onclick="copyTo('bind-{{ item[1] }}')">copy</button>
+            {% endfor %}
+        </main>
+    </main>
+    {% else %}
+    <strong class="alert">Please <em>sign up</em> for adding own configs or binds</strong>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".", 
+			"pythonPath": "/home/user/.env/flask/bin/python"
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay",
+		"python.linting.pylintEnabled": true,
+    	"python.linting.enabled": true,
+		"python.languageServer": "Pylance",
+		"python.linting.pylintArgs": ["--errors-only", "--disable={C01111}"],
+		"editor.fontFamily": "Jetbrains Mono",
+		"editor.fontSize": 16,
+		"editor.fontLigatures": true
+	}
+}

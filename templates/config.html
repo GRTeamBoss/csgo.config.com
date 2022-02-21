@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<section>
+    {% if user %}
+    <h2>Config:</h2>
+    {% if user_config %}
+    <main>
+        {% for item in user_config %}
+        <article>{{ item[2] }}</article>
+        <code>{{ item[3] }}</code>
+        <form action="{{ url_for('add_or_get_config') }}" method="post">
+            <input type="text" name="delete" value="{{ item[1] }}" hidden>
+            <button type="submit">delete</button>
+        </form>
+        {% endfor %}
+    </main>
+    {% else %}
+    <strong>Empty</strong>
+    {% endif %}
+    <form action="{{ url_for('add_or_get_config') }}" method="post">
+        <label for="config_name">Name:</label>
+        <input type="text" name="config_name">
+        <label for="config_code">Code:</label>
+        <input type="text" name="config_code" required="required">
+        <button type="submit">submit</button>
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    {% else %}
+    <strong class="alert">Please <em>sign up</em> for adding own configs or binds</strong>
+    {% endif %}
+</section>
+{% endblock %}
